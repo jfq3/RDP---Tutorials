@@ -36,11 +36,11 @@ If you installed RDPTools in directory /usr and followed the other instructions 
     UCHIME=/usr/uchime/uchime4.2.40_i86linux32
     HMMALIGN=/usr/bin/hmmalign
 
-To process the test\_reads.fa provided, yo do not need to edit sections 2 or 3 of the configuration file.
+To process the test\_reads.fa provided, you do not need to edit sections 2 or 3 of the configuration file.
 
 ### Edit the Command Script File
 
-Use nano as above to edit the value of BASEDIR in run\_xander\_skel.sh to point to the RDPTools\_Xander_assembler\_bin directory. If you installed RDPTools in the directory /bin, this line should look like this:
+Use nano as above to edit the value of BASEDIR in run\_xander\_skel.sh to point to the RDPTools/Xander_assembler/bin directory. If you installed RDPTools in the directory /bin, this line should look like this:
 
     BASEDIR=/usr/RDPTools/Xander_assembler/bin
 
