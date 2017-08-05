@@ -7,7 +7,7 @@ Reference sequence files and models for each gene targeted for assembly are plac
 
 The gene reference directory is named for the gene and contains files and the subdirectory originaldata in this configuration:
 
-![directory structure](gene_resource_directory_small.png?raw=true)
+![directory structure](gene_resource_directory_small.png)
 
 In this example, the gene directory is rplB. It contains three files and the sub-directory originaldata which in turn contains the four files required for preparing HMMs and for post-assembly processing. These are:
 
