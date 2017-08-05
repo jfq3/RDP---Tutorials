@@ -69,7 +69,7 @@ Install HMMER 3.1 by entering the following in the terminal:
 
     sudo apt-get install hmmer
 
-Check that hmmer is installed:
+Check that **HMMER** is installed:
 
     man -k hmmer
 
@@ -83,7 +83,7 @@ Create a directory for UCHIME. You will likely need to use the sudo command:
 
 Download the Linux binary [UCHIME](http://drive5.com/uchime/uchime_download.html "UCHIME4.2.40_linuxi86") and place it in */usr/uchime*. As of July 2017, the UCHIME version is UCHIME4.2.40_linuxi86. Assuming you downloaded it to *~/Downloads*, the command to move the file would be:
 
-    sudo mv ~/Downloads/uchime4.2.40_i86linux32 /usr/uchime
+    sudo mv ~/Downloads/uchime4.2.40_i86linux32 /usr/uchime/
 
 From the *uchime* directory, use the sudo command to change the file permissions so that it is executable:
 
@@ -91,4 +91,44 @@ From the *uchime* directory, use the sudo command to change the file permissions
     sudo chmod 755 uchime4.2.40_i86linux32
 
 You may then edit the name of the file to make it shorter if you want. 
+
+**Patched HMMER 3.0**
+
+Installation of a patched version of **HMMER** version 3.0 is necessary only if you intend to add capability for genes not already in the Xander installation yourself. If you are not comfortable doing so, skip this installation and get help from the RDP staff.
+
+Download **HMMER 3.0** from hmmer.org/download.html. It is the form of a compressed  file named hmmer-3.0.tar.gz.
+
+Place the compressed file in the directory /usr/.
+
+    sudo mv ~/Downloads/hmmer-3.0.tar.gz /usr/
+
+Extract the file:
+
+    cd /usr
+    tar xzf hmmer-3.0.tar.gz
+
+This will create a directory named hmmer-3.0. Rename the directory hmmer-3.0_xanderpatch.
+
+    sudo mv hmmer-3.0 hmmer-3.0_xanderpatch
+
+Apply the patch:
+
+    sudo patch /usr/hmmer-3.0_xanderpatch/src/p7_prior.c < /usr/RDPTools/Xander_assembler/bin/hmmer-3.0_Xander_patch.txt
+
+Install the patched version following the instructions in the INSTALL file. You will likely need to use sudo.
+
+    cd /usr/hmmer-3.0_xanderpatch
+    sudo ./configure
+    sudo make
+    sudo make install
+
+The patched 3.0 version will be installed in */usr/local/bin/*.
+If you followed the instructions above, the original 3.1 version is in /usr/bin/.
+This is important to remember when using **HMMER** because commands for the two versions have the same names. The directories must be specified.
+
+
+
+
+
+
 
