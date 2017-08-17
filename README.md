@@ -7,3 +7,4 @@ This repository includes tutorials on the use of RDPTools. Included are:
 - Explanation of Xander Result Files (xander_results.md)
 - Combining Xander Results from Multiple Samples (xander_combining.samples.md)
 - Preparing Gene Resource Files (add_xander_hmms.md)
+- How to Choose Xander Parameters (xander_choosing_parameters.md)
