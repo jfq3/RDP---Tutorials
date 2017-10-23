@@ -40,7 +40,7 @@ To process the test\_reads.fa provided, you do not need to edit sections 2 or 3 
 
 ### Edit the Command Script File
 
-Use nano as above to edit the value of BASEDIR in run\_xander\_skel.sh to point to the RDPTools/Xander_assembler/bin directory. If you installed RDPTools in the directory /bin, this line should look like this:
+Use nano as above to edit the value of BASEDIR in run\_xander\_skel.sh to point to the RDPTools/Xander_assembler/bin directory. If you installed RDPTools in the directory /usr, this line should look like this:
 
     BASEDIR=/usr/RDPTools/Xander_assembler/bin
 
