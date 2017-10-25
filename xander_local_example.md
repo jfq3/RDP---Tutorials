@@ -23,7 +23,7 @@ Next, begin editing the paths in the first section of my\_xander\_setenv.sh by e
 
 Use the arrow keys to move the cursor to the appropriate place in the text. Insert characters by typing. Delete characters with the delete or backspace keys. There is a menu at the bottom of the nano screen indicating keys to use to write out the changed file and exit nano. The "^" in this menu means the "Ctrl" key. When you are finished making changes, hold down the Ctrl key and type o. You will be offered the opportunity to change the file name. To keep the same name, just hit the Enter key. Then hold down the Ctrl key and type x to exit nano. You may check that your changes have been made with less:
 
-    less my\_xander\_setenv.sh
+    less my_xander_setenv.sh
 
 If you installed RDPTools in directory /usr and followed the other instructions for installing uchime and hmmer, the edited section should look like the below, but be sure that all paths and file names match your installations.
 
