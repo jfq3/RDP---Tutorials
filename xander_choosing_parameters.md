@@ -17,7 +17,7 @@ The value for **FILTER_SIZE** depends on the size of the data file. Based on our
 |   70 GB        |       |         38           |
 |  350 GB        |       |         40           |
 
-**K_SIZE** is the kmer size used for contig assembly. It must be a multiple of 3 (3 nucleotides code for an amino acid) an cannot be larger than 63; a value of 45 is recommended.
+**K_SIZE** is the kmer size used for contig assembly. It must be a multiple of 3 (3 nucleotides code for an amino acid) and cannot be larger than 63; a value of 45 is recommended.
 
 **MIN_COUNT** is the minimum kmer occurrence in the **SEQFILE** (data file) for the kmer to be included in the final bloom filter. This is almost always equal to 1. Larger values require more memory (java heap size).
 
