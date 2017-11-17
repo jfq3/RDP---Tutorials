@@ -1,7 +1,9 @@
 ## Alternative Procedure for Submitting Xander Jobs
-The file xander_hpcc_example.md includes a section on submitting Xander jobs to MSU's HPCC. That section describes a way of submitting a job using a long one line qsub command with -l and -v flags. Some users are uncomfortable with that method, and admittedly it is prone to typographical errors. So that jobs may instead be submitted using a qsub file, I have made small changes to the qsub_xander_setenv.sh and qsub_xander_run.sh files; these changes are commented in the code below. Additionally I provide and example qsub file. All three files require some editing for paths, sequence file names and run parameters. Put all three files in your working directory, make sure they are readable and executable. Then to submit the job, from your working directory issue the command:  
+The file xander_hpcc_example.md, part of these tutorials, includes a section on submitting Xander jobs to MSU's HPCC. That section describes a way of submitting a job using a long one line qsub command with -l and -v flags. Some users are uncomfortable with that method, and admittedly it is prone to typographical errors. So that jobs may instead be submitted using a qsub file, I have made small changes to the xander_setenv.sh and xander_run.sh files; these changes are commented in the code below. Additionally I provide an example qsub file. All three files require some editing for paths, sequence file names and run parameters. After editing, put all three files in your working directory and make sure they are readable and executable. Then to submit the job, from your working directory all you have to do is issue the command:  
 
     qsub submit_xander.qsub
+
+### The qsub_run_xander.sh file
 Copy the code below to your editor. Give it the name qsub_run_xander.sh. Edit the assignment for the ENVFILE variable to include your working directory. The assignment for BASEDIR is correct for the RDPTools installation on MSU's HPCC. If you are using a different machine, edit this line as appropriate. Make sure the file has UNIX line endings, save your changes, and move it to your working directory on the HPCC. Make sure it is readable and executable.  
 
     #!/bin/bash -login
@@ -36,6 +38,7 @@ Copy the code below to your editor. Give it the name qsub_run_xander.sh. Edit th
 		done
     fi
 
+### The qsub_xander_setenv.sh file
 Copy the code below to your editor and give it the name qsub_xander_setenv.sh. To run this as an example on MSU's HPCC, you need edit only the assignment for WORKDIR. For installations on other machines, edit the paths in the first section as appropriate. For other data, edit the the second and third sections. Make sure the file has UNIX line endings, save your changes, and move he file to your working directory. Make sure the file is readable and executable.  
 
     #!/bin/bash -login
@@ -91,6 +94,7 @@ Copy the code below to your editor and give it the name qsub_xander_setenv.sh. T
 
     ## end of configuration
 
+### The submit_xander.qsub file
 Copy the code below to your editor and give it the name submit_xander.qsub. To run this as an example you need edit only your email address and home directory. To process your own data, you will also need to edit the resources requested and run name. Make sure the file has UNIX line endings, save your changes and move the file to your working directory. Make sure it is readable and executable.
 
     #!/bin/bash --login
