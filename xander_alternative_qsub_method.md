@@ -3,6 +3,8 @@ The file xander_hpcc_example.md, part of these tutorials, includes a section on 
 
     qsub submit_xander.qsub
 
+These instructions are specific to MSU's HPCC, but hopefully provide guidance for submitting Xander jobs on other computer clusters using the same qsub method.  
+
 ### The qsub_run_xander.sh file
 Copy the code below to your editor. Give it the name qsub_run_xander.sh. Edit the assignment for the ENVFILE variable to include your working directory. The assignment for BASEDIR is correct for the RDPTools installation on MSU's HPCC. If you are using a different machine, edit this line as appropriate. Make sure the file has UNIX line endings, save your changes, and move it to your working directory on the HPCC. Make sure it is readable and executable.  
 
