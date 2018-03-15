@@ -42,7 +42,7 @@ __De Bruijn graph set up__
 |   70 GB        |       |         38           |
 |  350 GB        |       |         40           |
 
-* `K_SIZE`: The kmer size (in base pairs) used for contig assembly. It must be a multiple of 3 (3 nucleotides code for an amino acid) and cannot be larger than 63; a value of 45 is recommended.
+* `K_SIZE`: The kmer size (in base pairs) used for contig assembly. It must be a multiple of 3 (3 nucleotides code for an amino acid) and cannot be larger than 63; a value of 45 is recommended. 
 
 * `MIN_COUNT`: The minimum kmer occurrence in the `SEQFILE` (data file) for the kmer to be included in the final bloom filter. This is almost always equal to 1. Larger values require more memory (java heap size).
 
@@ -63,7 +63,7 @@ __De Bruijn graph quality__
 
 The quality of the bloom filter can be evaluated by examining the false discovery rate reported on the next to last line of the output file `knn_bloom_stat.txt` found in the `knn` sub-directory of the data output directory. `knn` is the kmer size specified by the `K_SIZE` parameter (i.e. k45). 
 * The false discovery rate should be less than 0.01 (1 %) and depends on the parameter `FILTER\_SIZE`. 
-* If the false discovery rate is greater than 0.01, delete the `knn` directory and then re-run Xander build with a larger `FILTER_SIZE`.
+* If the false discovery rate is greater than 0.01, delete the bloom filter (`knn.bloom`) in the working directory and then re-run Xander build with a larger `FILTER_SIZE`. 
 
 ---
 
