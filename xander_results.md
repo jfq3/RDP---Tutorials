@@ -45,7 +45,7 @@ RDP's mcClust (https://github.com/rdpstaff/Clustering) is used to cluster the se
 * Input 1: `prot_merged_rmdup.fasta` from initial search
 * Output 1: representative contigs at 99% aa identity (`nucl_rep_seqs.fasta` and `prot_rep_seqs.fasta`). 
 * Output 2: aligned protein contigs (`aligned.fasta`)
-* Output 3: complete linkage cluster output (`complete.clust`) 
+* Output 3: complete linkage cluster output (`complete.clust`). Shows how many contigs you have with different distance cutoffs.
 
 ---
 
@@ -56,7 +56,7 @@ RDP's mcClust (https://github.com/rdpstaff/Clustering) is used to cluster the se
 * Input 2: gene nucleotide reference set ( `nucl.fa` from the `gene_reference/GENE/originaldata` directory)
 * Output 1: **UCHIME** output (`result_uchimealn.txt`, `results.uchime.txt`)
 * Output 2: quality_filtered nucleotide representative contigs (`final_nucl.fasta`)
-* Output 3: quality_filtered protein representative contigs (`final_prot.fasta`) 
+* Output 3: quality_filtered protein representative contigs and their raw abundance (not coverage adjusted; number of contigs)(`final_prot.fasta`) 
 
 **Note: the quality-filtered contigs in `final_nucl.fasta`, `final_prot.fasta` and `final_prot_aligned.fasta` should be used as the final set of contigs assembled by Xander.**
 
