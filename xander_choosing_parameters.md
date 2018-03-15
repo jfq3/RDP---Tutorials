@@ -11,6 +11,8 @@ Parameters for running Xander are set in the configuration file (`xander_setenv.
      * [__Contig clustering__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#contig-clustering-parameters): Parameters for clustering resulting contigs. 
      * [__Other__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#other-parameters)
 
+--- 
+
 ### Build Parameters
 
 As the name suggests, these determine how the De Bruijn graph, or bloom filter, is built. It is important to get this right because everything else depends on the quality of the boom filter. Some experimentation in selecting the parameters may be necessary, so in practice it is best to first run Xander with only the build step.
@@ -49,6 +51,8 @@ The quality of the bloom filter can be evaluated by examining the false discover
 * The false discovery rate should be less than 0.01 (1 %) and depends on the parameter `FILTER\_SIZE`. 
 * If the false discovery rate is greater than 0.01, delete the `knn` directory and then re-run Xander build with a larger `FILTER_SIZE`.
 
+---
+
 ### Contig Search Parameters
 These impact the timing of search and are not adjusted often.
 
@@ -58,6 +62,8 @@ These impact the timing of search and are not adjusted often.
 
 * `LIMIT_IN_SECS` is the time limit in seconds to spend searching for each kmer. The recommended value is 100 seconds if `PATHS` = 1. If `PATHS` is larger, then the value for `LIMIT_IN_SECS` needs to be increased.
 
+---
+
 ### Contig Merge Parameters
 These can impact the length and quality of assembled sequences.
 
@@ -65,9 +71,13 @@ These can impact the length and quality of assembled sequences.
 
 * `MIN_LENGTH` is the minimum length for assembled protein contigs. The recommended value is 150.
 
+---
+
 ### Contig Clustering Parameters
 
 * `DIST_CUTOFF` is the distance at which to cluster aa sequences. The recommended value is 0.01.
+
+---
 
 ### Other parameters
 
