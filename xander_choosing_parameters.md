@@ -2,8 +2,8 @@
 
 Parameters for running Xander are set in the configuration file (`xander_setenv.sh`) and, for submitted jobs, in the qsub command for submitting the jobs. There are comments in the configuration file and in the `README` file on [GitHub](https://github.com/rdpstaff/Xander_assembler) that explain at least in part how to select the parameters. There are three sections of the configuration file:
 
-1. __Directory assignment__: the paths to use to find data, to output results, and to programs Xander calls. 
-2. __Sample naming__: a sample identifier to be appended to the beginning of output files and contig names.
+1. [__Directory assignment__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#directory-assignment): a user's paths for data, output results, and to programs Xander calls. 
+2. __Sample naming__: a unique sample identifier to be appended to the beginning of all output files and contig id (ie fasta headers).
 3. __Parameters__: defines parameters important to the quality of Xander results. 
      * [__Build__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#build-parameters): parameters for building the De Bruijn graph. These relate to the size of the data file.
      * [__Contig search__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#contig-search-parameters): parameters for searching for contigs. These impact the timing of search and are not adjusted often.
@@ -12,6 +12,18 @@ Parameters for running Xander are set in the configuration file (`xander_setenv.
      * [__Other__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#other-parameters)
 
 --- 
+
+### Directory assignment
+This section must be modified to match your file structure.
+
+* `SEQFILE`: absolute path to sequence file. 
+    * accepted file formats: fasta, fataq or gz format
+    * can use wildcards (`*`) to point to multiple files as long as there are no spaces in the names
+* `WORKDIR`: absolute path to working directory. It is useful to have a separate working directory for each sample of interest.
+* `REF_DIR`: absolute path to `Xander_assembler` directory
+* `JAR_DIR`: absolute path to `RDPTools`
+* `UCHIME`: absolute path to `uchime`
+* `HMMALIGN`: absolute path to `hmmalign`
 
 ### Build Parameters
 
@@ -56,7 +68,7 @@ The quality of the bloom filter can be evaluated by examining the false discover
 ### Contig Search Parameters
 These impact the timing of search and are not adjusted often.
 
-* `PRUNE` the search if the score does not improve after the specified value for  `n_nodes`. The recommended value is 20. Set this to 0 to disable pruning.
+* `PRUNE` the search if the score does not improve after the specified value for  `n_nodes`. The recommended value is 20. If this is set to 0, pruning is disabled but required memory and time increases.
 
 * `PATHS` is the number of paths to search for each starting kmer. A value of 1 returns the shortest path.
 
@@ -67,15 +79,15 @@ These impact the timing of search and are not adjusted often.
 ### Contig Merge Parameters
 These can impact the length and quality of assembled sequences.
 
-* `MIN_BITS` is the minimum assembled contigs bit score. The recommended value is 50.
+* `MIN_BITS` is the minimum assembled contigs bit score. The recommended value is 50. This value can be increased if low quality sequences are assembled. 
 
-* `MIN_LENGTH` is the minimum length for assembled protein contigs. The recommended value is 150.
+* `MIN_LENGTH` is the minimum length for assembled protein contigs. The recommended value is 150, which would result in a minimum assembled bp length of 450 and a minimum aa length of 150.
 
 ---
 
 ### Contig Clustering Parameters
 
-* `DIST_CUTOFF` is the distance at which to cluster aa sequences. The recommended value is 0.01.
+* `DIST_CUTOFF` is the distance at which to cluster aa sequences. The recommended value is 0.01, which would cluster final contigs at 99% aa identity.
 
 ---
 
