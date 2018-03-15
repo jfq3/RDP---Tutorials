@@ -1,4 +1,4 @@
-## Explanation of Xander Results 
+# Explanation of Xander Results 
 
 The *run\_xander\_skel.sh* script first builds the bloom filter, finds starting kmers, and assembles contigs into target gene sequences. Once the contigs have been assembled, they are corrected for insertions and deletions by **FrameBot**, clustered at a specified aa distance, and the longest contig from each cluster taken as the representative sequence for the cluster. These are filtered for chimeras using **UCHIME** to give the final sequence files ending with *\_final\_nucl.fasta*, *\_final\_prot.fasta*, and *\_final\_prot\_aligned.fasta*. (For example *test\_nifH\_45\_final\_prot\_aligned.fasta*.) The closest match to each sequence is found with **FrameBot** and a coverage file is generated. The coverage file is used to adjust the sequence counts for coverage, and a taxon abundance file (ending with *taxonabundance.txt*) based on these corrected counts is generated. This file is the final Xander result for a single sample and gives the percentage of corrected counts for each phylum or class for which sequences were found. 
 
@@ -6,7 +6,7 @@ The inputs and outputs for each step in this process are explained below. Input 
 
 ---
 
-### Build
+## Build
 Build the de Bruijn graph. Do this only once for each data set for a given kmer length.
 
 * Input: read files (fasta, fastq or gz format)
@@ -15,7 +15,7 @@ Build the de Bruijn graph. Do this only once for each data set for a given kmer 
 
 ---
 
-### Find
+## Find
 Identify the starting kmers. Multiple genes should be run together to save time; there is a multi-thread option.
 
 * Input 1: `ref_aligned.faa` files from `gene_resource` directory 
@@ -24,7 +24,7 @@ Identify the starting kmers. Multiple genes should be run together to save time;
 
 ---
 
-### Search: Initial search
+## Search: Initial search
 Assemble the contigs. Each gene can be done in parallel. Length cutoff or HMM score cutoff filters are used. Caution: no outputs from this step are quality filtered!
 
 * Input 1: forward and reverse HMMs (`for_enone.hmm` and `rev_enone.hmm`)
@@ -36,10 +36,10 @@ Assemble the contigs. Each gene can be done in parallel. Length cutoff or HMM sc
 
 ---
 
-### Search: Post assembly processing
+## Search: Post assembly processing
 Post assembly steps including clustering, chimera removal, closest-match assignment, and abundance calculation.
 
-#### Cluster
+### Cluster
 RDP's mcClust (https://github.com/rdpstaff/Clustering) is used to cluster the sequences based on aa identity. For each of the clusters the longest contig is chosen as the representative contig. Caution: no outputs from this step are quality filtered! All outputs for this step are located in the `cluster` directory. 
 
 * Input 1: `prot_merged_rmdup.fasta` from initial search
@@ -49,7 +49,7 @@ RDP's mcClust (https://github.com/rdpstaff/Clustering) is used to cluster the se
 
 ---
 
-#### Remove Chimeric Contigs
+### Remove Chimeric Contigs
 **UCHIME** in reference mode is used to remove chimeric contigs. All outputs for this step are located in the `cluster` directory. 
 
 * Input 1: representative nucleotide contigs (`nucl_rep_seqs.fasta` from cluster step)
@@ -62,7 +62,7 @@ RDP's mcClust (https://github.com/rdpstaff/Clustering) is used to cluster the se
 
 ---
 
-#### Find Closest Matches
+### Find Closest Matches
 The nearest reference sequence match to each contig is found using RDP's **FrameBot** tool (https://github.com/rdpstaff/Framebot). RDP's **Protein Seqmatch** tool could also be used for this step. All outputs for this step are located in the `cluster` directory. 
 
 * Input 1: quality_filtered nucleotide representative contigs (`final_nucl.fasta`)
@@ -71,7 +71,7 @@ The nearest reference sequence match to each contig is found using RDP's **Frame
 
 ---
 
-#### Coverage & Kmer Abundance
+### Coverage & Kmer Abundance
 Read mapping, contig coverage, and kmer abundance are determined with RDP's **KmerFilter** tool. There is a multi-thread option for these steps.
 
 * Input 1: quality\_filtered nucleotide representative contigs (`final_nucl.fasta`)
@@ -81,7 +81,7 @@ Read mapping, contig coverage, and kmer abundance are determined with RDP's **Km
 
 ---
 
-#### Taxonomic Abundance 
+### Taxonomic Abundance 
 This gives is the final output for a single sample. You can think of it as a summary for OTUs (clusters) found in the sample. For each, it gives the closest reference match and the abundance and fractional abundance. 
 
  * Input 1: contig coverage (`coverage.txt`)
