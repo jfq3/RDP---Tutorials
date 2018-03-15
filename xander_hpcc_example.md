@@ -73,6 +73,8 @@ It is good practice to copy this script to your working directory and give it a 
 
 The command script `run_xander_skel.sh` is also included with Xander (`RDPTools/Xander_assembler/bin/`) and is printed below. 
 
+This script is not typically edited *except* to change the `BASEDIR`, which is simply the path to Xander's bin `RDPTools/Xander_assembler/bin` on your local computer. MSU HPCC users need not adjust this script. 
+
     #!/bin/bash -login
 
     ## This is the main script to run Xander assembly
