@@ -1,10 +1,19 @@
 ## Interactive Xander Example on MSU's HPCC
 
-Two script files are required to run Xander. These are the configuration script and the command script. The configuration file provides paths and parameter values to be used. The command script parses the command you enter for the steps to be run. It also includes commands for several post processing steps that summarize the results.
+Two script files are required to run Xander. These are the configuration script (`xander_setenv.sh`) and the command script (`run_xander_skel.sh`). 
+	* `xander_setenv.sh`: The configuration file provides paths and parameter values to be used. This __must__ be adjusted before running. See [xander_choosing_parameters.md](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md) for more information.
+	* `run_xander_skel.sh`: The command script parses the command you enter for the steps to be run. It also includes commands for several post processing steps that summarize the results. This does not need to be edited. 
 
-### Configuration Script
+### Configuration Script (`xander_setenv.sh`)
 
-The installed template file xander\_setenv.sh provides configuration information appropriate to the installation of RDPTools on MSU's HPCC and is divided into three sections. The first section gives the absolute paths to the sequence file, output directory, HMM files, and programs. The second section gives a short name that will be prefixed to the contig names. The third section gives parameters for each step in assembling the contigs. These parameters are specific to the data set, but usually no more than two or three need to be changed. The file is commented to help you edit it to your particular installation and data set. It is good practice to copy it to your working directory and give it a new name, such as my\_xander\_setenv.sh that will be used in this example. The installed configuration script template is:
+The installed template file `xander_setenv.sh` provides configuration information appropriate to the installation of RDPTools on MSU's HPCC and is divided into three sections. 
+	* The first section gives the absolute paths to the sequence file, output directory, HMM files, and programs. 
+	* The second section gives a short name that will be prefixed to the contig names. 
+	* The third section gives parameters for each step in assembling the contigs. These parameters are specific to the data set, but usually no more than two or three need to be changed. 
+	
+This script is located within the Xander package: `RDPTools/Xander_assembler/bin/`
+
+It is good practice to copy this script to your working directory and give it a new name, such as `my_xander_setenv.sh` that will be used in this example. The installed configuration script template is:
 
     #!/bin/bash -login
     
@@ -60,9 +69,9 @@ The installed template file xander\_setenv.sh provides configuration information
 
     #### end of configuration
 
-### Xander Command Script
+### Xander Command Script (`run_xander_skel.sh`)
 
-The command script run\_xander\_skel.sh is printed below. 
+The command script `run_xander_skel.sh` is also included with Xander (`RDPTools/Xander_assembler/bin/`) and is printed below. 
 
     #!/bin/bash -login
 
@@ -120,19 +129,21 @@ Run Xander Interactively on MSU's HPCC using the following steps:
 
     cd ~/test_xander
 
-**3.** Copy xander\_setenv.sh to your working directory and rename it to my\_xander\_setenv.sh.
+**3.** Copy `xander_setenv.sh` to your working directory and rename it to `my_xander_setenv.sh`.
 
     cp /mnt/research/rdp/public/RDPTools/Xander_assembler/bin/xander_setenv.sh ~/test_xander/my_xander_setenv.sh
 
-**4.** Edit the path variable for your working directory in the First section of my\_xander\_setenv.sh to the absolute path, e.g ~/test_xander. To start the editor, type:
+**4.** Edit the path variable for your working directory in the First section of `my_xander_setenv.sh` to the absolute path, e.g ~/test_xander. To start the editor, type:
 
     nano  my_xander_setenv.sh
 
-Use the arrow keys to move the cursor to the appropriate place in the text. Insert characters by typing. Delete characters with the delete or backspace keys. There is a menu at the bottom of the nano screen indicating keys to use to write out the changed file and exit nano. The "^" in this menu means the "Ctrl" key. When you are finished making changes, hold down the Ctrl key and type o. You will be offered the opportunity to change the file name. To keep the same name, just hit the Enter key. If you are asked whether or not to over-write the file, type y and Enter. Then hold down the Ctrl key and type x to exit nano. You may check that your change has been made with less:
+* Nano tips: Use the arrow keys to move the cursor to the appropriate place in the text. Insert characters by typing. Delete characters with the delete or backspace keys. There is a menu at the bottom of the nano screen indicating keys to use to write out the changed file and exit nano. The "^" in this menu means the "Ctrl" key. When you are finished making changes, hold down the Ctrl key and type o. You will be offered the opportunity to change the file name. To keep the same name, just hit the Enter key. If you are asked whether or not to over-write the file, type y and Enter. Then hold down the Ctrl key and type x to exit nano. 
+
+* You may check that your change has been made with less:
 
     less my_xander_setenv.sh
 
-**5.** Copy run\_xander\_skel.sh to your working directory.
+**5.** Copy `run_xander_skel.sh` to your working directory.
 
     cp /mnt/research/rdp/public/RDPTools/Xander_assembler/bin/run_xander_skel.sh ~/test_xander/run_xander_skel.sh
 
@@ -142,7 +153,7 @@ Make sure that the two script files are executable. Change the file permissions 
     chmod 755 my_xander_setenv.sh
     ls -l
 
-For this example, you do not need to edit anything in run\_xander\_skel.sh. 
+For this example (and in most other cases), you do not need to edit anything in `run_xander_skel.sh`. 
 
 **6.** The following example command will attempt to run all the three steps (build, find and search) for the genes nifH, nirK, rplB, and nosZ specified in the input parameters. It creates an assembly output directory "k45" for kmer length of 45. It makes an output directory for each gene inside "k45" and saves all the output in the gene output directories. This toy data set should take approximately 5 minutes to run. Messages will be echoed to the screen during this time. The program is finished when the input prompt reappears.
     
