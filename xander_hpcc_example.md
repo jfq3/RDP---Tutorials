@@ -137,9 +137,9 @@ Run Xander Interactively on MSU's HPCC using the following steps:
 
     nano  my_xander_setenv.sh
 
-* Nano tips: Use the arrow keys to move the cursor to the appropriate place in the text. Insert characters by typing. Delete characters with the delete or backspace keys. There is a menu at the bottom of the nano screen indicating keys to use to write out the changed file and exit nano. The "^" in this menu means the "Ctrl" key. When you are finished making changes, hold down the Ctrl key and type o. You will be offered the opportunity to change the file name. To keep the same name, just hit the Enter key. If you are asked whether or not to over-write the file, type y and Enter. Then hold down the Ctrl key and type x to exit nano. 
+* (optional) Nano tips: Use the arrow keys to move the cursor to the appropriate place in the text. Insert characters by typing. Delete characters with the delete or backspace keys. There is a menu at the bottom of the nano screen indicating keys to use to write out the changed file and exit nano. The "^" in this menu means the "Ctrl" key. When you are finished making changes, hold down the Ctrl key and type o. You will be offered the opportunity to change the file name. To keep the same name, just hit the Enter key. If you are asked whether or not to over-write the file, type y and Enter. Then hold down the Ctrl key and type x to exit nano. 
 
-* You may check that your change has been made with less:
+* (optional) You may check that your change has been made with less:
 
     less my_xander_setenv.sh
 
@@ -155,7 +155,7 @@ Make sure that the two script files are executable. Change the file permissions 
 
 For this example (and in most other cases), you do not need to edit anything in `run_xander_skel.sh`. 
 
-**6.** The following example command will attempt to run all the three steps (build, find and search) for the genes nifH, nirK, rplB, and nosZ specified in the input parameters. It creates an assembly output directory "k45" for kmer length of 45. It makes an output directory for each gene inside "k45" and saves all the output in the gene output directories. This toy data set should take approximately 5 minutes to run. Messages will be echoed to the screen during this time. The program is finished when the input prompt reappears.
+**6.** The following example command will attempt to run all the three steps (build, find and search) for the genes nifH, nirK, rplB, and nosZ specified in the input parameters. It creates an assembly output directory `k45` for kmer length of 45. It makes an output directory for each gene inside the `k45` directory and saves all the output in the gene output directories. This toy data set should take approximately 5 minutes to run. Messages will be echoed to the screen during this time. The program is finished when the input prompt reappears.
     
     ./run_xander_skel.sh my_xander_setenv.sh "build find search" "nifH nirK rplB nosZ"
 
@@ -169,7 +169,7 @@ You can also run the three steps separately, or search multiple genes in paralle
     ./bin/run_xander_skel.sh my_xander_setenv.sh "search" "nosZ" &
     
  
-**IMPORTANT:** If you want to rebuild the bloom graph structure, you need to manually delete the bloom file in the output directory. If you want to rerun  finding the starting kmers for a gene, you need to manually delete that gene output directory. As a safety precaution, the script will not automatically over-write these files, but they are specific to the data being searched in subsequent assembly (search) steps. That is, they have to be created for each data set.
+**IMPORTANT:** If you want to rebuild the bloom graph structure, you need to manually delete the bloom file (`k45.bloom`) in the output directory. If you want to rerun  finding the starting kmers for a gene, you need to manually delete that gene output directory (in this case `k45`). As a safety precaution, the script will not automatically over-write these files, but they are specific to the data being searched in subsequent assembly (search) steps. That is, they have to be created for each data set.
 
 ## Submitting Xander Jobs to MSU's HPCC
 
