@@ -25,6 +25,8 @@ This section must be modified to match your file structure.
 * `UCHIME`: absolute path to `uchime`
 * `HMMALIGN`: absolute path to `hmmalign`
 
+---
+
 ### Build Parameters
 
 As the name suggests, these determine how the De Bruijn graph, or bloom filter, is built. It is important to get this right because everything else depends on the quality of the boom filter. Some experimentation in selecting the parameters may be necessary, so in practice it is best to first run Xander with only the build step.
