@@ -1,15 +1,15 @@
 ## Interactive Xander Example on MSU's HPCC
 
 Two script files are required to run Xander. These are the configuration script (`xander_setenv.sh`) and the command script (`run_xander_skel.sh`). 
-	* `xander_setenv.sh`: The configuration file provides paths and parameter values to be used. This __must__ be adjusted before running. See [xander_choosing_parameters.md](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md) for more information.
-	* `run_xander_skel.sh`: The command script parses the command you enter for the steps to be run. It also includes commands for several post processing steps that summarize the results. This does not need to be edited. 
+* `xander_setenv.sh`: The configuration file provides paths and parameter values to be used. This __must__ be adjusted before running. See [xander_choosing_parameters.md](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md) for more information.
+* `run_xander_skel.sh`: The command script parses the command you enter for the steps to be run. It also includes commands for several post processing steps that summarize the results. This does not need to be edited. 
 
 ### Configuration Script (`xander_setenv.sh`)
 
 The installed template file `xander_setenv.sh` provides configuration information appropriate to the installation of RDPTools on MSU's HPCC and is divided into three sections. 
-	* The first section gives the absolute paths to the sequence file, output directory, HMM files, and programs. 
-	* The second section gives a short name that will be prefixed to the contig names. 
-	* The third section gives parameters for each step in assembling the contigs. These parameters are specific to the data set, but usually no more than two or three need to be changed. 
+* The first section gives the absolute paths to the sequence file, output directory, HMM files, and programs. 
+* The second section gives a short name that will be prefixed to the contig names. 
+* The third section gives parameters for each step in assembling the contigs. These parameters are specific to the data set, but usually no more than two or three need to be changed. 
 	
 This script is located within the Xander package: `RDPTools/Xander_assembler/bin/`
 
