@@ -8,13 +8,17 @@ The script `get_OTUabundance.sh` in `RDPTools/Xander_assembler/bin/` is provided
 	* A file of all the sample coverage files concatenated together
 	
 * __Outputs__
-	* `rformat_dist_0.##.txt`: data matrix files with OTU abundances for each sample at given distances (0 to 0.5 bu 0.01 steps by default). The data matrices can then imported to R for more extensive analysis and visualization functions. Currently these are rounded down to include whole number OTU abundances only.
-	
+	* `rformat_dist_0.##.txt`: data matrix files with OTU abundances for each sample at given distances (0 to 0.5 by 0.01 steps by default). The data matrices can then imported to R for more extensive analysis and visualization functions. Currently these are rounded down to include whole number OTU abundances only.
+
+---
+
 ### Planning ahead
 
 It is easier to collect the necessary files together if you plan ahead. 
 * Before you run Xander, create a directory for your experiment. Within it, create a Xander output directory for each sample in your experiment. 
 * When you run Xander, in the `xander_setenv.sh` file for each sample give a `SAMPLE_SHORTNAME` that identifies the sample and point the output to the appropriate sample directory. If you are using MSU's HPCC, you can submit multiple jobs (up to 250, but good luck with that) at the same time. 
+
+---
 
 ### Example
 
