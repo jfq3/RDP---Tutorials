@@ -38,8 +38,8 @@ fi
 
 ## Get files.
 cd $work_dir
-# find $expt_dir/ -name "*"$gene"*coverage.txt" -exec cp {} $work_dir/ \;
-# find $expt_dir/ -name "*"$gene"*final_prot_aligned.fasta" -exec cp {} $work_dir/ \;
+find $expt_dir/ -name "*"$gene"*coverage.txt" -exec cp {} $work_dir/ \;
+find $expt_dir/ -name "*"$gene"*final_prot_aligned.fasta" -exec cp {} $work_dir/ \;
 mkdir taxa
 find $expt_dir/ -name "*"$gene"*framebot.txt" -exec cp {} $work_dir/taxa/ \;
 rm taxa/*failed*.txt
