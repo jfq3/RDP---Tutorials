@@ -31,7 +31,7 @@ while getopts "w:e:d:g:" option; do
     esac
 done
 
-if [[ -z $work_dir || -z $expt_dir || -z $distance || -z $gene ]]; then
+f [[ -z $work_dir || -z $expt_dir || -z $distance || -z $gene ]]; then
    echo "Usage: -w <work_dir> -e <expt_dir> -d <distance> -g <gene>"
    exit 1
 fi
@@ -72,7 +72,7 @@ grep "STATS" matches.txt | cut -f2,3,4,5,6 | cut -d "_" -f 2- > match_taxa_machi
 grep ">" complete.clust_rep_seqs.fasta | cut -f1 -d "," | sed 's/>//' | sed 's/seq_id=//' | sed 's/  /\t/'  >  match_cluster_machine_name.txt
 
 ## Make tree file
-java -Xmx$16g -jar /mnt/research/rdp/public/RDPTools/Clustering.jar derep -f -o rep_seqs_model_only.fasta ids samples complete.clust_rep_seqs.fasta
+java -Xmx16g -jar /mnt/research/rdp/public/RDPTools/Clustering.jar derep -f -o rep_seqs_model_only.fasta ids samples complete.clust_rep_seqs.fasta
 FastTree rep_seqs_model_only.fasta > my_tree.nwk
 ```
 
