@@ -496,7 +496,7 @@ plt$plot +
   ggtitle("PCA for rplB in KBS Soil", subtitle = " Square Root of Wisconsin Transformed Counts")
 ```
 
-![directory structure](./graphics/xander2phyloseq_ord.png)
+![directory structure](xander2phyloseq_ord.png)
 
 ### Make a Tree Plot
 
@@ -512,7 +512,7 @@ tree.plot.1 <- tree.plot.1 + theme(legend.position = "bottom",
 tree.plot.1
 ```
 
-![directory structure](./graphics/xander2phyloseq_tree.png)
+![directory structure](xander2phyloseq_tree.png)
 
 Two of these OTUs are found only in corn, and one is found almost exclusively in corn. Corn is well separated from the other crops in the ordination.
 
