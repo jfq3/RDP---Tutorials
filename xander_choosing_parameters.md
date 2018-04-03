@@ -2,15 +2,14 @@
 
 Parameters for running Xander are set in the configuration file (`xander_setenv.sh`) and, for submitted jobs, in the qsub command for submitting the jobs. There are comments in the configuration file and in the `README` file on [GitHub](https://github.com/rdpstaff/Xander_assembler) that explain at least in part how to select the parameters. There are three sections of the configuration file:
 
-1. [__Directory assignment__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#directory-assignment): a user's paths for data, output results, and to programs Xander calls. 
-2. __Sample naming__: a unique sample identifier to be appended to the beginning of all output files and contig id (ie fasta headers).
+1. __Directory assignment__: a user's paths for data, output results, and to programs Xander calls. 
+2. __Sample naming__: a unique sample identifier to be appended to the beginning of all output files and contig id (i.e. fasta headers).
 3. __Parameters__: defines parameters important to the quality of Xander results. 
-     * [__Build__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#build-parameters): parameters for building the De Bruijn graph. These relate to the size of the data file.
-     * [__Contig search__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#contig-search-parameters): parameters for searching for contigs. These impact the timing of search and are not adjusted often.
-     * [__Contig merge__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#contig-merge-parameters): parameters for assembling contigs. These can impact the length and quality of assembled sequences.
-     * [__Contig clustering__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#contig-clustering-parameters): Parameters for clustering resulting contigs. 
-     * [__Other__](https://github.com/dunivint/RDP_Tutorials/blob/master/xander_choosing_parameters.md#other-parameters)
-
+     * __Build__: parameters for building the De Bruijn graph. These relate to the size of the data file.
+     * __Contig search__: parameters for searching for contigs. These impact the timing of search and are not adjusted often.
+     * __Contig merge__: parameters for assembling contigs. These can impact the length and quality of assembled sequences.
+     * __Contig clustering__: Parameters for clustering resulting contigs. 
+     * __Other parameters__
 --- 
 
 ### Directory assignment
@@ -98,7 +97,7 @@ These can impact the length and quality of assembled sequences.
 * `THREADS` is the number of computer cores to use. 
   * Only one core is used to build the bloom filter, `THREADS` does not impact this step.
   * The find and search steps may be run in parallel, one core for each gene, as explained in the files *xander\_local\_example.md* and *xander\_hpcc\_example.md*. 
-    * Set **THREADS** to the number of genes you are searching for, but do not exceed one less than the number of cores you have on your computer. 
-    * For example when submitting a job to MSU's cluster, the value of ppn should be **THREADS** plus 1. 
+    * Set `THREADS` to the number of genes you are searching for, but do not exceed one less than the number of cores you have on your computer. 
+    * For example when submitting a job to MSU's cluster, the value of ppn should be `THREADS` plus 1. 
 
 * `NAME`=k$K_SIZE need not be changed. It defines the name of the sub-directory to which results are written (`knn`).
