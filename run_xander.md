@@ -1,8 +1,8 @@
 ## Running Xander
 
-Two script files are required to run Xander. These are the configuration script and the command script. The configuration file provides paths and parameter values to be used. The command script parses the command you enter for the steps to be run and the genes to be found. It also includes commands for several post processing steps that summarize the results.
+Two script files are required to run Xander. These are the configuration script and the command script. The configuration file provides paths and parameter values to be used. The command script parses the command you enter for the steps to be run and the genes to be found, and then executes the Xander steps specified. It also includes commands for several post processing steps that summarize the results.
 
-Templates for these two script files are part of the RDPTools installation and are located in `RDPTools/Xander_assembler/bin` sub-directory. The configuration script file is named `xander_setenv.sh` and the command script file is named `run_xander_skel.sh`. The paths in these files are appropriate to the installation of RDPTools on MSU's HPCC. The paths must be edited for use on another installations of RDPTools.
+Templates for these two script files are part of the RDPTools installation and are located in the `RDPTools/Xander_assembler/bin` sub-directory. The configuration script file is named `xander_setenv.sh` and the command script file is named `run_xander_skel.sh`. The paths in these files are appropriate to the installation of RDPTools on MSU's HPCC. The paths must be edited for use with another installation of RDPTools.
 
 ### The Xander Exercises
 
