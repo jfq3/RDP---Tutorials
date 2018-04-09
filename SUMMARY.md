@@ -5,7 +5,7 @@
 * [Run Xander](run_xander.md)
     * [Test Local Xander Installation](xander_local_example.md)
     * [Interactive Xander on MSU's HPCC](xander_hpcc_example.md)
-    * [Submitting Xander Jobs on MSU's HPCC](xander_alternative_qsub_method.md)
+    * [Submitting Xander Jobs on MSU's HPCC](submitting_xander_jobs.md)
 * [Choosing Xander Parameters](xander_choosing_parameters.md)
 * [Xander Results Explained](xander_results.md)
 * [Adding Gene Models to Xander](add_xander_hmms.md)
