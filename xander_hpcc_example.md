@@ -3,7 +3,7 @@
 This exercise is applicable to a the installation of **RDPTools** on MSU's HPCC. Exercise steps are:
 
 1. Create a working directory.
-2. Copy the configuration and run scripts into the working directory.
+2. Copy the configuration and command scripts into the working directory.
 3. Edit the configuration script.
 4. From the working directory, enter a run command of the form:
 
