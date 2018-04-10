@@ -78,14 +78,14 @@ Using the editor of your choice, create a file named `~/submit_xander.qsub` in y
 
 export OMP_NUM_THREADS=5
 
-cd ~/test_xander_qsub
+cd ~/xander_qsub
 ./run_xander.sh xander_setenv.sh "build find search" "nifH nirK rplB nosZ"
 ```
 ppn and OMP_NUM_THREADS should be one more than the number of genes, one more than the number of THREADS in `xander_setenv.sh`. And of course, replace "your_emaill_address" with your own actual one.
 
 ### Submit the Job
 
-Submit the job ot the queue with the command:
+Submit the job to the queue with the command:
 
 ```
 qsub submit_xander.qsub
