@@ -44,7 +44,7 @@ There are two lines in the configuration script that you need to change. With th
 ```
 WORKDIR=~/xander_qsub
 
-THREADS=3
+THREADS=4
 ```
 To make these changes using the editor **nano**, begin by entering the following:
 
@@ -71,16 +71,16 @@ Using the editor of your choice, create a file named `submit_xander.qsub` in you
 
 ```
 #!/bin/bash -login
-#PBS -l walltime=00:10:00,nodes=01:ppn=4,mem=2GB
+#PBS -l walltime=00:15:00,nodes=01:ppn=5,mem=2GB
 #PBS -N xander_qsub
 #PBS -j oe
 #PBS -m abe
 #PBS -M your_email_address
 
-export OMP_NUM_THREADS=4
+export OMP_NUM_THREADS=5
 
 cd ~/xander_qsub
-./run_xander.sh my_xander_setenv.sh "build find search" "nifH nirK rplB"
+./run_xander.sh my_xander_setenv.sh "build find search" "nifH nirK rplB nosZ"
 ```
 ppn and OMP_NUM_THREADS should be one more than the number of genes, one more than the number of THREADS in `xander_setenv.sh`. And of course, replace "your_email_address" with your own actual one.
 
