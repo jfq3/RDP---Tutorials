@@ -39,12 +39,12 @@ cp /mnt/research/rdp/public/RDPTools/Xander_assembler/bin/run_xander_skel.sh ~/x
 ```
 ### Edit the Configuration Script File
 
-There are two lines in the configuration script that you need to change. With the editor of your choice, edit the path variable for your working directory in the First section of `my_xander_setenv.sh` to the absolute path, e.g `~/xander_qsub`. Edit the number of threads to use in the Third section to THREADS=4. THREADS should be 4, the number of genes you will list in the last line of the qsub file (below). After your edits, these two lines should look like this:
+There are two lines in the configuration script that you need to change. With the editor of your choice, edit the path variable for your working directory in the First section of `my_xander_setenv.sh` to the absolute path, e.g `~/xander_qsub`. Edit the number of threads to use in the Third section to THREADS=3. THREADS should be 3, the number of genes you will list in the last line of the qsub file (below). After your edits, these two lines should look like this:
 
 ```
 WORKDIR=~/xander_qsub
 
-THREADS=4
+THREADS=3
 ```
 To make these changes using the editor **nano**, begin by entering the following:
 
@@ -67,21 +67,22 @@ ls -l
 ```
 ### Create the qsub File
 
-Using the editor of your choice, create a file named `~/submit_xander.qsub` in your working directory. This can be done with **nano** if you wish. The contents of the file should be:
+Using the editor of your choice, create a file named `submit_xander.qsub` in your working directory. This can be done with **nano** if you wish. The contents of the file should be:
 
 ```
-#PBS -l walltime=00:10:00,nodes=01:ppn=5,mem=2GB
+#!/bin/bash -login
+#PBS -l walltime=00:10:00,nodes=01:ppn=4,mem=2GB
 #PBS -N xander_qsub
 #PBS -j oe
 #PBS -m abe
 #PBS -M your_email_address
 
-export OMP_NUM_THREADS=5
+export OMP_NUM_THREADS=4
 
 cd ~/xander_qsub
-./run_xander.sh xander_setenv.sh "build find search" "nifH nirK rplB nosZ"
+./run_xander.sh my_xander_setenv.sh "build find search" "nifH nirK rplB"
 ```
-ppn and OMP_NUM_THREADS should be one more than the number of genes, one more than the number of THREADS in `xander_setenv.sh`. And of course, replace "your_emaill_address" with your own actual one.
+ppn and OMP_NUM_THREADS should be one more than the number of genes, one more than the number of THREADS in `xander_setenv.sh`. And of course, replace "your_email_address" with your own actual one.
 
 ### Submit the Job
 
