@@ -13,7 +13,7 @@ Build the de Bruijn graph. Do this only once for each data set for a given kmer 
 
 * Output
    * de Bruijn graph (`k45.bloom`) 
-   * bloom file stats (`k45_bloom_stat.txt`). Check the "Predicted false positive rate" in this file to make sure that it is less than 1% (i.e. < 0.01). (see *xander\_choosing\_parameters.md*)
+   * bloom file stats (`k45_bloom_stat.txt`). Check the "Predicted false positive rate" in this file to make sure that it is less than 1% ( i.e. < 0.01, see **Choosing Xander Parameters**.)
 
 ---
 
@@ -47,7 +47,7 @@ Assemble the contigs. Each gene can be done in parallel. Length cutoff or HMM sc
 Post assembly steps including clustering, chimera removal, closest-match assignment, and abundance calculation.
 
 ### Cluster
-RDP's mcClust (https://github.com/rdpstaff/Clustering) is used to cluster the sequences based on aa identity. For each of the clusters the longest contig is chosen as the representative contig. Caution: no outputs from this step are quality filtered! All outputs for this step are located in the `cluster` directory. 
+RDP's [mcClust](https://github.com/rdpstaff/Clustering) is used to cluster the sequences based on aa identity. For each of the clusters the longest contig is chosen as the representative contig. Caution: no outputs from this step are quality filtered! All outputs for this step are located in the `cluster` directory. 
 
 * Input: `prot_merged_rmdup.fasta` from initial search
 
@@ -75,7 +75,7 @@ RDP's mcClust (https://github.com/rdpstaff/Clustering) is used to cluster the se
 ---
 
 ### Find Closest Matches
-The nearest reference sequence match to each contig is found using RDP's **FrameBot** tool (https://github.com/rdpstaff/Framebot). RDP's **Protein Seqmatch** tool could also be used for this step. All outputs for this step are located in the `cluster` directory. 
+The nearest reference sequence match to each contig is found using RDP's [**FrameBot** tool](https://github.com/rdpstaff/Framebot). RDP's [**Protein Seqmatch** tool](https://github.com/rdpstaff/SequenceMatch) could also be used for this step. All outputs for this step are located in the `cluster` directory. 
 
 * Input
    * quality_filtered nucleotide representative contigs (`final_nucl.fasta`)
@@ -86,7 +86,7 @@ The nearest reference sequence match to each contig is found using RDP's **Frame
 ---
 
 ### Coverage & Kmer Abundance
-Read mapping, contig coverage, and kmer abundance are determined with RDP's **KmerFilter** tool. There is a multi-thread option for these steps.
+Read mapping, contig coverage, and kmer abundance are determined with RDP's [**KmerFilter** tool](https://github.com/rdpstaff/KmerFilter). There is a multi-thread option for these steps.
 
 * Input 1
    * quality\_filtered nucleotide representative contigs (`final_nucl.fasta`)
@@ -106,10 +106,10 @@ This gives is the final output for a single sample. You can think of it as a sum
    * gene protein reference set (`framebot.fa` from the `gene_reference/GENE/originaldata` directory) 
    
  * Output: taxonomic abundance adjusted by coverage, grouped by lineage (phylum and in some cases class) (`taxonabund.txt`). 
-    * If taxonomy was added to `framebot.fa` ahead of time, taxanomic abundance is calculated by phylum and lineage. 
-    * If taxonomy was not added to `framebot.fa` ahead of time, taxanomic abundance of lineage is shown twice.
+    * If taxonomy was added to `framebot.fa` ahead of time, taxonomic abundance is calculated by phylum and lineage. 
+    * If taxonomy was not added to `framebot.fa` ahead of time, taxonomic abundance of lineage is shown twice.
 
 ---
 
 ## Multiple Samples
-To see how results for multiple samples can be combined into an OTU table for community analyses, see the file *xander\_combining\_samples.md*.
+To see how results for multiple samples can be combined into an OTU table for community analyses, see the section **Xander Results for Multiple Samples**.
