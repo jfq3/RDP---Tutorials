@@ -1,6 +1,6 @@
 ## Choosing Xander Parameters
 
-Parameters for running Xander are set in the configuration file (`xander_setenv.sh`) and, for submitted jobs, in the qsub command for submitting the jobs. There are comments in the configuration file and in the `README` file on [GitHub](https://github.com/rdpstaff/Xander_assembler) that explain at least in part how to select the parameters. There are three sections of the configuration file:
+Parameters for running Xander are set in the configuration file (`xander_setenv.sh`). There are comments in the configuration file and in the `README` file on [GitHub](https://github.com/rdpstaff/Xander_assembler) that explain at least in part how to select the parameters. There are three sections of the configuration file:
 
 1. __Directory assignment__: a user's paths for data, output results, and to programs Xander calls. 
 2. __Sample naming__: a unique sample identifier to be appended to the beginning of all output files and contig id (i.e. fasta headers).
@@ -16,7 +16,7 @@ Parameters for running Xander are set in the configuration file (`xander_setenv.
 This section must be modified to match your file structure.
 
 * `SEQFILE`: absolute path to sequence file. 
-    * accepted file formats: fasta, fataq or gz format
+    * accepted file formats: fasta, fastq or gz format
     * can use wildcards (`*`) to point to multiple files as long as there are no spaces in the names
 * `WORKDIR`: absolute path to working directory. It is useful to have a separate working directory for each sample of interest.
 * `REF_DIR`: absolute path to `Xander_assembler` directory
@@ -61,7 +61,7 @@ __De Bruijn graph set up__
 __De Bruijn graph quality__
 
 The quality of the bloom filter can be evaluated by examining the false discovery rate reported on the next to last line of the output file `knn_bloom_stat.txt` found in the `knn` sub-directory of the data output directory. `knn` is the kmer size specified by the `K_SIZE` parameter (i.e. k45). 
-* The false discovery rate should be less than 0.01 (1 %) and depends on the parameter `FILTER\_SIZE`. 
+* The false discovery rate should be less than 0.01 (1 %) and depends on the parameter `FILTER_SIZE`. 
 * If the false discovery rate is greater than 0.01, delete the bloom filter (`knn.bloom`) in the working directory and then re-run Xander build with a larger `FILTER_SIZE`. 
 
 ---
