@@ -53,7 +53,7 @@ SEQFILE=/usr/local/RDPTools/Xander_assembler/testdata/test_reads.fa
 WORKDIR=~/test_xander
 REF_DIR=/usr/local/RDPTools/Xander_assembler
 JAR_DIR=/usr/local/RDPTools
-UCHIME=/us Command r/uchime/uchime4.2.40_i86linux32
+UCHIME=/usr/uchime/uchime4.2.40_i86linux32
 HMMALIGN=/usr/bin/hmmalign
 ```
 To use the editor **nano**, begin by entering the following:

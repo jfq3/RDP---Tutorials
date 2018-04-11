@@ -40,7 +40,7 @@ cp /mnt/research/rdp/public/RDPTools/Xander_assembler/bin/run_xander_skel.sh ~/t
 
 The configuration script is divided into three sections. The first section gives the absolute paths to the sequence (data) file, output directory, HMM files, and programs. The second section gives a short name that will be prefixed to the contig names. This name must be unique for each sample in an experiment. The third section gives parameters for each step in assembling the contigs. These parameters are specific to the data set, but usually no more than two or three need to be changed. (See the section **Choosing Xander Parameters**.) The configuraton file is commented to help you edit it for your particular installation and data set.
 
-To run this exercise on MSU's HPCC, there is only one line in the configuration script that you need to change. With the editor of your choice, edit the path variable for your working directory in the First section of `my_xander_setenv.sh` to the absolute path, e.g `~/test_xander`. After you edits, this section should look like this:
+To run this exercise on MSU's HPCC, there is only one line in the configuration script that you need to change. With the editor of your choice, edit the path variable for your working directory in the First section of `my_xander_setenv.sh` to the absolute path, e.g `~/test_xander`. After your edits, this section should look like this:
 
 ```
 ## First section

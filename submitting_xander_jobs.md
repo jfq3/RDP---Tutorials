@@ -39,7 +39,7 @@ cp /mnt/research/rdp/public/RDPTools/Xander_assembler/bin/run_xander_skel.sh ~/x
 ```
 ### Edit the Configuration Script File
 
-There are two lines in the configuration script that you need to change. With the editor of your choice, edit the path variable for your working directory in the First section of `my_xander_setenv.sh` to the absolute path, e.g `~/xander_qsub`. Edit the number of threads to use in the Third section to THREADS=3. THREADS should be 3, the number of genes you will list in the last line of the qsub file (below). After your edits, these two lines should look like this:
+There are two lines in the configuration script that you need to change. With the editor of your choice, edit the path variable for your working directory in the First section of `my_xander_setenv.sh` to the absolute path, e.g `~/xander_qsub`. Edit the number of threads to use in the Third section to THREADS=4. THREADS should be 4, the number of genes you will list in the last line of the qsub file (below). After your edits, these two lines should look like this:
 
 ```
 WORKDIR=~/xander_qsub
