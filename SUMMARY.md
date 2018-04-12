@@ -1,5 +1,5 @@
 # Summary
-* [Introduction](xander_intro.md)
+* [Introduction](README.md)
 * [Install RDP Tools](install_rdptools.md)
 * [Run Xander](run_xander.md)
     * [Test Local Xander Installation](xander_local_example.md)
