@@ -1,4 +1,4 @@
-# Explanation of Xander Results 
+# Xander Results Explained
 
 The *run\_xander\_skel.sh* script first builds the bloom filter, finds starting kmers, and assembles contigs into target gene sequences. Once the contigs have been assembled, they are corrected for insertions and deletions by **FrameBot**, clustered at a specified aa distance, and the longest contig from each cluster taken as the representative sequence for the cluster. These are filtered for chimeras using **UCHIME** to give the final sequence files ending with *\_final\_nucl.fasta*, *\_final\_prot.fasta*, and *\_final\_prot\_aligned.fasta*. (For example *test\_nifH\_45\_final\_prot\_aligned.fasta*.) The closest match to each sequence is found with **FrameBot** and a coverage file is generated. The coverage file is used to adjust the sequence counts for coverage, and a taxon abundance file (ending with *taxonabundance.txt*) based on these corrected counts is generated. This file is the final Xander result for a single sample and gives the percentage of corrected counts for each phylum or class for which sequences were found. 
 

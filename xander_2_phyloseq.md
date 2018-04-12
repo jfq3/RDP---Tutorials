@@ -1,4 +1,4 @@
-Xander to Phyloseq
+Xander Results for Multiple Samples
 ============
 
 This document explains how to fill an experiment-level `phyloseq` object with Xander output. This example is for rplB contigs found in the 21 KBS soil metagenomes used for the original Xander paper (Wang et al, 2015). The files necessary to create this experiment-level object were produced by the script `xander_cluster_sample.sh` listed below.
