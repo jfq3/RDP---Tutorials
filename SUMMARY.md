@@ -1,5 +1,4 @@
 # Summary
-
 * [Introduction](xander_intro.md)
 * [Install RDP Tools](install_rdptools.md)
 * [Run Xander](run_xander.md)
