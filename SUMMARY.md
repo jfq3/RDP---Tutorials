@@ -8,4 +8,4 @@
 * [Choosing Xander Parameters](xander_choosing_parameters.md)
 * [Xander Results Explained](xander_results.md)
 * [Adding Gene Models to Xander](add_xander_hmms.md)
-* [Xander Results for Multiple Samples](xander_2_phyloseq.md)
+* [Xander Results for Multiple Samples](xander_multiple_samples.md)
