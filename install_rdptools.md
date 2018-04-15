@@ -12,7 +12,7 @@ RDPTools and its dependencies are available at these URLs:
 * Java 1.6+ JDK ([https://www.oracle.com/downloads/index.html](https://www.oracle.com/downloads/index.html "Java"))
 * HMMER 3.1 ([http://hmmer.janelia.org](http://hmmer.org/ "HMMER"))
 * UCHIME ([http://drive5.com/uchime/uchime_download.html](http://drive5.com/uchime/uchime_download.html "UCHIME"))
-* A patched version of HMMER 3.0 if building your own hidden Markov models for other genes of interest. See the file add_xander_hmms.md for instructions.
+* A patched version of HMMER 3.0 if building your own hidden Markov models for other genes of interest. See the section **Adding Gene Models to Xander** for instructions.
 
 **Python 2.7** is included in most Linux systems including Ubuntu 16.04 LTS, the latest LTS version as of July 2017. Test for it by typing "python" and Enter or Return in the terminal window. Exit python by entering Control D. 
 
@@ -37,9 +37,9 @@ which should return a list of instructions. If it does not, install Java by ente
 
 #### Install RDPTools
 
-Begin installation of RDPTools by cloning them from the Git repository. The commands below will install RDPTools in the directory *usr*:
+Begin installation of RDPTools by cloning them from the Git repository. The commands below will install RDPTools in the directory *usrlocal*:
 
-    cd /usr
+    cd /usr/local
     git clone https://github.com/rdpstaff/RDPTools.git
 
 Then for a new installation of RDPTools, enter:
@@ -50,7 +50,7 @@ Then for a new installation of RDPTools, enter:
 
 Alternatively, to update an existing installation of RDPTools:
 
-    cd /usr/RDPTools
+    cd /usr/local/RDPTools
     git pull
     git submodule update
     make clean
@@ -58,7 +58,7 @@ Alternatively, to update an existing installation of RDPTools:
 
 Xander is one of the RDPTools. Test for the installation of Xander by entering:
 
-    java -Xmx2g -jar /usr/RDPTools/hmmgs.jar
+    java -Xmx2g -jar /usr/local/RDPTools/hmmgs.jar
 
 which should return a list of Xander commands.
 
