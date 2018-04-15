@@ -96,7 +96,7 @@ These can impact the length and quality of assembled sequences.
 
 * `THREADS` is the number of computer cores to use. 
   * Only one core is used to build the bloom filter, `THREADS` does not impact this step.
-  * The find and search steps may be run in parallel, one core for each gene, as explained in the files *xander\_local\_example.md* and *xander\_hpcc\_example.md*. 
+  * The find and search steps may be run in parallel, one core for each gene, as explained in the sections **Test a Local Xander Installation** and **Interactive Example on MSU's HPCC** . 
     * Set `THREADS` to the number of genes you are searching for, but do not exceed one less than the number of cores you have on your computer. 
     * For example when submitting a job to MSU's cluster, the value of ppn should be `THREADS` plus 1. 
 

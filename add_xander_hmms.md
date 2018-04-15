@@ -1,6 +1,6 @@
 ## Adding Gene Resources to Xander
 
-The Xander analysis pipeline is preconfigured for the genes rplB, amoA_AOA, AmoA_AOB, nifH, nirK, nirS, norB_cNor, norB_qNor, nosZ, and nosZ_a2. It is possible, however, to add resource files for other genes by following the process given here.
+The Xander analysis pipeline is preconfigured for the genes rplB, amoA_AOA, AmoA_AOB, nifH, nirK, nirS, norB_cNor, norB_qNor, nosZ,  nosZ_a2 and rplB. It is possible, however, to add resource files for other genes by following the process given here.
 
 First, go the the FunGene page (http://fungene.cme.msu.edu/) and see if your gene of interest has been already been entered. If not, you must select seed sequences covering the diversity of your gene. It requires some expertise to do this properly. Then contact the RDP staff (
 http://rdp.cme.msu.edu/misc/contacts.jsp) and request that they add your seed sequences to FunGene. FunGene searches for related sequences and updates approximately monthly, so if your gene is not already listed it is important to submit seed sequences as soon as possible. 
@@ -40,11 +40,11 @@ For a new gene, all four of these files can be downloaded from the FunGene page 
 - Select Protein download and click the Download button. Save the file.
 - Select Nucleotide Download and click the Download button. Save the tile.
 - If you had more than 10,000 sequences or 5 pages to download, return to your last page by selecting the appropriate page/tab in your browser. Click on Deselect All Sequences, click on the next page number, select all sequences, etc. and download the rest of the unalighned protein and nucleotide sequences. 
-- Put all of the files you downloaded in the original data file for your new gene.
+- Put all of the files you downloaded in the originaldata directory for your new gene.
 
 ### Dereplicate and Filter Sequences
 
-Some further filtering of the downloaded sequences is required. FunGene collects duplicate sequences which should be removed by dereplication. Despite selecting isolates only, sometimes sequences for uncultured microorganisms are still present in the downloaded sequences and should be removed. Also, it is desirable to remove sequences with less than 50% identitiy to the closest seed sequence. The following code performs the necessary filtering after first catenating your downloaded files together if necessary. The python scripts are at * in the folder *. Edit the path to the python scripts and RDPTools as necessary.
+Some further filtering of the downloaded sequences is required. FunGene collects duplicate sequences which should be removed by dereplication. Despite selecting isolates only, sometimes sequences for uncultured microorganisms are still present in the downloaded sequences and should be removed. Also, it is desirable to remove sequences with less than 50% identitiy to the closest seed sequence. The following code performs the necessary filtering after first catenating your downloaded files together if necessary. The python scripts are at https://github.com/jfq3/Auxillary-Xander-scripts. Edit the path to the python scripts and RDPTools as necessary.
 
 ```
 #!/bin/bash
@@ -78,13 +78,15 @@ You are now ready to prepare the gene reference files.
 
 ### Prepare Gene Reference Files
 
-The script `prepare_gene_ref.sh`, present in `/RDPTools/Xander_assembler/bin/`builds HMMs for Xander and aligns the  reference sequences. The script does this using  hmmer-3.0_xanderpatch, a modified version of HMMMER3.0 (see Installing RDPTools). The modified version is tuned to detect close orthologs. 
-* __Inputs__ include three files from the `originaldata` directory:
-    * `gene.seeds`
-    * `gene.hmm`
-    * `framebot.fa` 
+The script `prepare_gene_ref.sh`, present in `/RDPTools/Xander_assembler/bin/`builds HMMs for Xander and aligns the  reference sequences. The script does this using  hmmer-3.0_xanderpatch, a modified version of HMMMER3.0 (see Installing RDPTools). The modified version is tuned to detect close orthologs.
 
-    where `gene` is the name of the gene.
+* __Inputs__ include three files from the `originaldata` directory:
+   * `gene.seeds`
+   * `gene.hmm`
+   * `framebot.fa` 
+
+ where `gene` is the name of the gene.
+ 
 * __Outputs__ are saved to the `gene` directory within `gene_resource`
     * `for_enone.hmm`: forward HMM for assembling gene contigs
     * `rev_enone.hmm`: reverse HMM for assembling gene contigs
@@ -102,13 +104,13 @@ Run the script. It takes a single argument, the gene name.  Remember, if you cha
 
 ### Test gene references
 
-Check the file permissions for the files in the gene resource directory to be sure they are all readable by user, group, and world. If not, make them so (`chmod 644 filename`). Then test that your new gene resource files work by running Xander with a subset of `framebot.fa` as the sample sequences (`SEQFILE`). See *Test Local Xander Installation* or *Interactive Xander on MSU's HPCC*.
+Check the file permissions for the files in the gene resource directory to be sure they are all readable by user, group, and world. If not, make them so (`chmod 644 filename`). Then test that your new gene resource files work by running Xander with a subset of `framebot.fa` as the sample sequences (`SEQFILE`). See section **Test Local Xander Installation** or **Interactive Xander on MSU's HPCC**.
 
 *insert troubleshooting ideas if xander does not successfully assemble gene resource sequences*
 
 ### Add Taxonomy to framebot.fa
 
-Once assured that your new gene resource files work, you can add taxonomy to the `framebot.fa` file. If taxonomy is added, Xander will automatically calculate the relative abundance of each phylum. 
+Once assured that your new gene resource files work, you can add taxonomy to the `framebot.fa` file. If taxonomy is added, Xander will automatically calculate the relative abundance of sequences classified by phylum. 
 
 * Requirements
     * python 2.7
@@ -128,8 +130,8 @@ Once assured that your new gene resource files work, you can add taxonomy to the
     
 
 ```
-mkdir ~/add\_taxonomy
-cd ~/add\_taxonomy
+mkdir ~/add_taxonomy
+cd ~/add_taxonomy
 cp /usr/local/RDPTools/Xander_assembler/gene_resource/but/originaldata/framebot.fa ~/add_taxonomy/
 ```
 

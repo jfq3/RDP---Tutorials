@@ -98,7 +98,7 @@ Read mapping, contig coverage, and kmer abundance are determined with RDP's [**K
 ---
 
 ### Taxonomic Abundance 
-This gives is the final output for a single sample. You can think of it as a summary for OTUs (clusters) found in the sample. For each, it gives the closest reference match and the abundance and fractional abundance. 
+This is the final output for a single sample. You can think of it as a summary for OTUs (clusters) found in the sample. For each, it gives the closest reference match and the abundance and fractional abundance. 
 
  * Input
    * contig coverage (`coverage.txt`)

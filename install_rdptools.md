@@ -12,7 +12,7 @@ RDPTools and its dependencies are available at these URLs:
 * Java 1.6+ JDK ([https://www.oracle.com/downloads/index.html](https://www.oracle.com/downloads/index.html "Java"))
 * HMMER 3.1 ([http://hmmer.janelia.org](http://hmmer.org/ "HMMER"))
 * UCHIME ([http://drive5.com/uchime/uchime_download.html](http://drive5.com/uchime/uchime_download.html "UCHIME"))
-* A patched version of HMMER 3.0 if building your own hidden Markov models for other genes of interest. See the section **Adding Gene Models to Xander** for instructions.
+* A patched version of HMMER 3.0 if building your own hidden Markov models for other genes of interest. See **Patched HMMER 3.0**  at the end of this section for instructions.
 
 **Python 2.7** is included in most Linux systems including Ubuntu 16.04 LTS, the latest LTS version as of July 2017. Test for it by typing "python" and Enter or Return in the terminal window. Exit python by entering Control D. 
 
@@ -37,14 +37,15 @@ which should return a list of instructions. If it does not, install Java by ente
 
 #### Install RDPTools
 
-Begin installation of RDPTools by cloning them from the Git repository. The commands below will install RDPTools in the directory *usrlocal*:
+Begin installation of RDPTools by cloning them from the Git repository. The commands below will install RDPTools in the directory *usr/local*:
 
     cd /usr/local
     git clone https://github.com/rdpstaff/RDPTools.git
 
 Then for a new installation of RDPTools, enter:
     
-    cd RDPTools git submodule init
+    cd /usr/local/RDPTools
+    git submodule init
     git submodule update
     make
 
@@ -77,20 +78,15 @@ which should return a list of commands.
 
 **UCHIME** 
 
-Create a directory for UCHIME. You will likely need to use the sudo command:
+Download the Linux binary [UCHIME](http://drive5.com/uchime/uchime_download.html "UCHIME4.2.40_linuxi86"). Move it to */usr/local/bin/*, renaming it to uchime in the process. As of July 2017, the UCHIME version is UCHIME4.2.40_linuxi86. Assuming you downloaded it to *~/Downloads*, the command to move and rename the file would be:
 
-    sudo mkdir /usr/uchime
+    sudo mv ~/Downloads/uchime4.2.40_i86linux32 /usr/local/bin/uchime
 
-Download the Linux binary [UCHIME](http://drive5.com/uchime/uchime_download.html "UCHIME4.2.40_linuxi86") and place it in */usr/uchime*. As of July 2017, the UCHIME version is UCHIME4.2.40_linuxi86. Assuming you downloaded it to *~/Downloads*, the command to move the file would be:
+From the *usr/local/bin/* directory, use the sudo command to change the file permissions so that it is executable:
 
-    sudo mv ~/Downloads/uchime4.2.40_i86linux32 /usr/uchime/
+    cd /usr/local/bin
+    sudo chmod 755 uchime
 
-From the *uchime* directory, use the sudo command to change the file permissions so that it is executable:
-
-    cd /usr/uchime
-    sudo chmod 755 uchime4.2.40_i86linux32
-
-You may then edit the name of the file to make it shorter if you want. 
 
 **Patched HMMER 3.0**
 

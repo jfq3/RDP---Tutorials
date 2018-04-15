@@ -1,5 +1,5 @@
 ## Submitting Xander Jobs to MSU's HPCC
-You may notice that the `Xander_assmebler/bin` directory contains the script files `qsub_run_xander_skel.sh` and `qsub_xander_setenv.sh`. Many of the parameters in `qsub_xander_setenv.sh` are commented out, and instead these parameters are supplied by the suggested qsub submission command in line 9 of `qsub_run_xander_skel.sh`. Many find this means of submitting jobs confusing, and it is unnecessary. Instead, jobs can be submitted following the example here, just as any other job is submitted.
+You may notice that the `Xander_assmebler/bin` directory contains the script files `qsub_run_xander_skel.sh` and `qsub_xander_setenv.sh`. Many of the parameters in `qsub_xander_setenv.sh` are commented out, and instead these parameters are supplied by the suggested qsub submission command in line 9 of `qsub_run_xander_skel.sh`. Many find this means of submitting jobs confusing and prone to typographical errors, and it is unnecessary. Instead, jobs can be submitted following the example here, just as any other job is submitted.
 
 Exercise steps are:
 
